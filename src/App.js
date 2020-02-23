@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import SeasonDisplay from './SeasonDisplay'
 
 function App() {
   const [lat, setLat] = useState(null)
@@ -15,12 +16,13 @@ function App() {
     )
   }, [])
 
-  return (
-    <div>
-      <div>latitude: {lat}</div>
-      <div>Error: {errorMessage}</div>
-    </div>
-  )
+  if (lat && !errorMessage) {
+    return <SeasonDisplay lat={lat}></SeasonDisplay>
+  }
+  if (!lat && errorMessage) {
+    return <div>Error: {errorMessage}</div>
+  }
+  return <div>Loading</div>
 }
 
 export default App
