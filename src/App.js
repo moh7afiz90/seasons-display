@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import SeasonDisplay from './SeasonDisplay'
+import SeasonDisplay from './SeasonDisplay/SeasonDisplay'
 
 function App() {
   const [lat, setLat] = useState(null)
